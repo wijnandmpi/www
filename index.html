@@ -7,21 +7,24 @@
       name="description"
       content="Wijnand van Woerkom is a researcher working on artificial intelligence, law, and legal reasoning."
     >
-    <title>Wijnand van Woerkom — AI &amp; Law Researcher</title>
+    <title>Wijnand van Woerkom</title>
+    <link rel="icon" href="assets/icons/favicon.svg" type="image/svg+xml">
+    <link rel="icon" href="assets/icons/favicon-32.png" sizes="32x32" type="image/png">
+    <link rel="apple-touch-icon" href="assets/icons/apple-touch-icon.png">
     <link rel="stylesheet" href="styles.css">
+    <script src="scripts/site.js" defer></script>
   </head>
   <body id="top">
     <a class="skip-link" href="#main-content">Skip to main content</a>
 
     <header class="site-header">
       <div class="header-inner">
-        <a class="wordmark" href="#top" aria-label="Wijnand van Woerkom, home">WvW</a>
         <nav aria-label="Primary navigation">
           <a href="#about">About</a>
           <a href="#news">News</a>
+          <a href="#events">Events</a>
           <a href="#publications">Publications</a>
           <a href="#talks">Talks</a>
-          <a href="#events">Events</a>
         </nav>
       </div>
     </header>
@@ -29,7 +32,6 @@
     <main id="main-content">
       <section class="hero" id="about" aria-labelledby="page-title">
         <div class="hero-copy">
-          <p class="eyebrow">AI &amp; Law · Legal Reasoning · Large Language Models</p>
           <h1 id="page-title">Wijnand<br>van Woerkom</h1>
           <p class="role">
             Senior Research Fellow at the Max Planck Institute for Comparative and
@@ -59,22 +61,25 @@
           <span class="portrait-accent" aria-hidden="true"></span>
           <img
             class="portrait"
-            src="assets/wijnand-van-woerkom.jpg"
-            alt="Portrait of Wijnand van Woerkom"
-            width="1019"
-            height="1019"
+            src="assets/images/portraits/wijnand-portrait-1.webp"
+            data-random-portrait
+            data-portraits="assets/images/portraits/wijnand-portrait-1.webp|assets/images/portraits/wijnand-portrait-2.webp"
+            alt="Wijnand van Woerkom"
+            width="960"
+            height="1200"
+            fetchpriority="high"
           >
         </figure>
       </section>
 
-      <section class="content-section" id="news" aria-labelledby="news-heading">
-        <header class="section-heading">
-          <p class="section-number" aria-hidden="true">01</p>
-          <h2 id="news-heading">News</h2>
-        </header>
-        <div class="section-content">
-          <ul class="news-list">
-            <!-- Duplicate this list item for each short update. -->
+      <section class="split-section" aria-label="Latest news and upcoming events">
+        <article class="split-panel" id="news" aria-labelledby="news-heading">
+          <header class="panel-heading">
+            <p class="section-number" aria-hidden="true">01</p>
+            <h2 id="news-heading">News</h2>
+          </header>
+          <ul class="preview-list">
+            <!-- Keep these first three entries in sync with news.html. -->
             <li>
               <time datetime="2026-08">August 2026</time>
               <div>
@@ -82,44 +87,267 @@
                 <p>This researcher homepage is now online. More updates will follow soon.</p>
               </div>
             </li>
+            <li>
+              <p class="entry-date">July 2026</p>
+              <div>
+                <h3>Research update placeholder</h3>
+                <p>Add a brief note about current work, a visit, or a collaboration.</p>
+              </div>
+            </li>
+            <li>
+              <p class="entry-date">June 2026</p>
+              <div>
+                <h3>Publication update placeholder</h3>
+                <p>Add a short announcement for a new paper, preprint, or award.</p>
+              </div>
+            </li>
           </ul>
-        </div>
+          <a class="text-link" href="news.html">View all news <span aria-hidden="true">→</span></a>
+        </article>
+
+        <article class="split-panel" id="events" aria-labelledby="events-heading">
+          <header class="panel-heading">
+            <p class="section-number" aria-hidden="true">02</p>
+            <h2 id="events-heading">Upcoming events</h2>
+          </header>
+          <ul class="preview-list">
+            <!-- Keep these first three entries in sync with events.html. -->
+            <li>
+              <p class="entry-date">Date to be announced</p>
+              <div>
+                <h3>Conference or workshop placeholder</h3>
+                <p>Event name · City or online</p>
+              </div>
+            </li>
+            <li>
+              <p class="entry-date">Date to be announced</p>
+              <div>
+                <h3>Research seminar placeholder</h3>
+                <p>Host institution · City or online</p>
+              </div>
+            </li>
+            <li>
+              <p class="entry-date">Date to be announced</p>
+              <div>
+                <h3>Guest lecture placeholder</h3>
+                <p>Lecture series · City or online</p>
+              </div>
+            </li>
+          </ul>
+          <a class="text-link" href="events.html">View all events <span aria-hidden="true">→</span></a>
+        </article>
       </section>
 
       <section class="content-section" id="publications" aria-labelledby="publications-heading">
         <header class="section-heading">
-          <p class="section-number" aria-hidden="true">02</p>
-          <h2 id="publications-heading">Selected publications</h2>
+          <p class="section-number" aria-hidden="true">03</p>
+          <h2 id="publications-heading">Publications</h2>
         </header>
         <div class="section-content">
-          <ol class="publication-list">
-            <!-- Replace these sample entries and duplicate as needed. -->
+          <ol class="publication-list" id="publication-list">
             <li>
               <article>
-                <p class="entry-type">Journal article · Year</p>
-                <h3>Publication title</h3>
-                <p class="citation">Author names. <em>Journal or proceedings title</em>.</p>
-                <p class="entry-links"><span>DOI</span><span>PDF</span><span>Code</span></p>
+                <p class="entry-type">Conference paper · 2025</p>
+                <h3>Defending the Hierarchical Result Models of Precedential Constraint</h3>
+                <p class="authors">
+                  <a href="https://www.uu.nl/staff/HPrakken">Henry Prakken</a> and Wijnand van Woerkom
+                </p>
+                <p class="citation"><em>Legal Knowledge and Information Systems</em>. IOS Press.</p>
+                <p class="entry-links">
+                  <a href="https://doi.org/10.3233/FAIA251608">DOI</a>
+                  <a href="assets/documents/publications/prakken2025defendinghierarchicalresult.pdf">PDF</a>
+                </p>
               </article>
             </li>
             <li>
               <article>
-                <p class="entry-type">Conference paper · Year</p>
-                <h3>Publication title</h3>
-                <p class="citation">Author names. <em>Conference or edited volume</em>.</p>
-                <p class="entry-links"><span>DOI</span><span>PDF</span></p>
+                <p class="entry-type">Doctoral dissertation · 2025</p>
+                <h3>A Fortiori Case-Based Reasoning: Formal Studies with Applications in Artificial Intelligence and Law</h3>
+                <p class="authors">Wijnand van Woerkom</p>
+                <p class="citation">Utrecht University.</p>
+                <p class="entry-links">
+                  <a href="https://doi.org/10.33540/2994">DOI</a>
+                  <a href="assets/documents/publications/proefschrift_web.pdf">PDF</a>
+                </p>
+              </article>
+            </li>
+            <li>
+              <article>
+                <p class="entry-type">Conference paper · 2025</p>
+                <h3>Formal Results on Case-Base Consistency: A COMPAS Case Study</h3>
+                <p class="authors">Wijnand van Woerkom</p>
+                <p class="citation"><em>Proceedings of the Twentieth International Conference on Artificial Intelligence and Law</em>.</p>
+                <p class="entry-links">
+                  <a href="https://doi.org/10.1145/3769126.3769190">DOI</a>
+                  <a href="assets/documents/publications/woerkom2025formalresultscase.pdf">PDF</a>
+                  <span class="award-badge">Winner · Donald Berman Best Student Paper</span>
+                </p>
+              </article>
+            </li>
+            <li>
+              <article>
+                <p class="entry-type">Conference paper · In press</p>
+                <h3>Measuring Case-Base Consistency with Monotonicity Metrics</h3>
+                <p class="authors">Wijnand van Woerkom</p>
+                <p class="citation"><em>Proceedings of the Twenty-First International Conference on Artificial Intelligence and Law</em>.</p>
+                <p class="entry-links">
+                  <a href="https://doi.org/10.1145/3836937.3836975">DOI</a>
+                  <a href="assets/documents/publications/woerkom2026measuringcasebase.pdf">PDF</a>
+                  <span class="award-badge">Winner · Carole Hafner Best Paper</span>
+                </p>
+              </article>
+            </li>
+            <li>
+              <article>
+                <p class="entry-type">Journal article · 2026</p>
+                <h3>Frobenius Structure and the Beck–Chevalley Condition for Algebraic Weak Factorization Systems</h3>
+                <p class="authors">
+                  Wijnand van Woerkom and
+                  <a href="https://www.uva.nl/profiel/b/e/b.vandenberg3/b.van-den-berg.html">Benno van den Berg</a>
+                </p>
+                <p class="citation"><em>Theory and Applications of Categories</em> 45: 1–30.</p>
+                <p class="entry-links">
+                  <a href="https://tac.mta.ca/tac/volumes/45/5/45-05abs.html">Article</a>
+                  <a href="assets/documents/publications/woerkom2026frobeniusstructurecondition.pdf">PDF</a>
+                </p>
+              </article>
+            </li>
+            <li>
+              <article>
+                <p class="entry-type">Conference paper · 2024</p>
+                <h3>A Case-Based-Reasoning Analysis of the COMPAS Dataset</h3>
+                <p class="authors">
+                  Wijnand van Woerkom,
+                  <a href="https://davidegrossi.me/">Davide Grossi</a>,
+                  <a href="https://www.uu.nl/staff/HPrakken">Henry Prakken</a>, and
+                  <a href="https://www.ai.rug.nl/~verheij/">Bart Verheij</a>
+                </p>
+                <p class="citation"><em>Legal Knowledge and Information Systems: JURIX 2024</em>. IOS Press.</p>
+                <p class="entry-links">
+                  <a href="https://doi.org/10.3233/FAIA241244">DOI</a>
+                  <a href="assets/documents/publications/woerkom2024cbranalysiscompas.pdf">PDF</a>
+                  <span class="award-badge award-badge-secondary">Runner-up · Best Student Paper</span>
+                </p>
+              </article>
+            </li>
+            <li>
+              <article>
+                <p class="entry-type">Journal article · 2024</p>
+                <h3>A Fortiori Case-Based Reasoning: From Theory to Data</h3>
+                <p class="authors">
+                  Wijnand van Woerkom,
+                  <a href="https://davidegrossi.me/">Davide Grossi</a>,
+                  <a href="https://www.uu.nl/staff/HPrakken">Henry Prakken</a>, and
+                  <a href="https://www.ai.rug.nl/~verheij/">Bart Verheij</a>
+                </p>
+                <p class="citation"><em>Journal of Artificial Intelligence Research</em> 81: 401–441.</p>
+                <p class="entry-links">
+                  <a href="https://doi.org/10.1613/jair.1.15178">DOI</a>
+                  <a href="assets/documents/publications/woerkom2024fortioricbrtheory.pdf">PDF</a>
+                </p>
+              </article>
+            </li>
+            <li>
+              <article>
+                <p class="entry-type">Conference paper · 2023</p>
+                <h3>Hierarchical a Fortiori Reasoning with Dimensions</h3>
+                <p class="authors">
+                  Wijnand van Woerkom,
+                  <a href="https://davidegrossi.me/">Davide Grossi</a>,
+                  <a href="https://www.uu.nl/staff/HPrakken">Henry Prakken</a>, and
+                  <a href="https://www.ai.rug.nl/~verheij/">Bart Verheij</a>
+                </p>
+                <p class="citation"><em>Legal Knowledge and Information Systems: JURIX 2023</em>. IOS Press.</p>
+                <p class="entry-links">
+                  <a href="https://doi.org/10.3233/FAIA230944">DOI</a>
+                  <a href="assets/documents/publications/woerkom2023hierarchicalreasoningdimensions.pdf">PDF</a>
+                </p>
+              </article>
+            </li>
+            <li>
+              <article>
+                <p class="entry-type">Journal article · 2026</p>
+                <h3>Hierarchical Models of Precedential Constraint</h3>
+                <p class="authors">
+                  Wijnand van Woerkom,
+                  <a href="https://davidegrossi.me/">Davide Grossi</a>,
+                  <a href="https://www.uu.nl/staff/HPrakken">Henry Prakken</a>, and
+                  <a href="https://www.ai.rug.nl/~verheij/">Bart Verheij</a>
+                </p>
+                <p class="citation"><em>Artificial Intelligence and Law</em>, advance online publication.</p>
+                <p class="entry-links">
+                  <a href="https://doi.org/10.1007/s10506-025-09461-x">DOI</a>
+                  <a href="assets/documents/publications/woerkom2026hierarchicalmodelsprecedential.pdf">PDF</a>
+                </p>
+              </article>
+            </li>
+            <li>
+              <article>
+                <p class="entry-type">Conference paper · 2023</p>
+                <h3>Hierarchical Precedential Constraint</h3>
+                <p class="authors">
+                  Wijnand van Woerkom,
+                  <a href="https://davidegrossi.me/">Davide Grossi</a>,
+                  <a href="https://www.uu.nl/staff/HPrakken">Henry Prakken</a>, and
+                  <a href="https://www.ai.rug.nl/~verheij/">Bart Verheij</a>
+                </p>
+                <p class="citation"><em>Proceedings of the Nineteenth International Conference on Artificial Intelligence and Law</em>, 333–342.</p>
+                <p class="entry-links">
+                  <a href="https://doi.org/10.1145/3594536.3595154">DOI</a>
+                  <a href="assets/documents/publications/woerkom2023hierarchicalprecedentialconstraint.pdf">PDF</a>
+                </p>
+              </article>
+            </li>
+            <li>
+              <article>
+                <p class="entry-type">Workshop paper · 2022</p>
+                <h3>Justification in Case-Based Reasoning</h3>
+                <p class="authors">
+                  Wijnand van Woerkom,
+                  <a href="https://davidegrossi.me/">Davide Grossi</a>,
+                  <a href="https://www.uu.nl/staff/HPrakken">Henry Prakken</a>, and
+                  <a href="https://www.ai.rug.nl/~verheij/">Bart Verheij</a>
+                </p>
+                <p class="citation"><em>1st International Workshop on Argumentation for eXplainable AI</em>, CEUR Workshop Proceedings 3209.</p>
+                <p class="entry-links">
+                  <a href="https://ceur-ws.org/Vol-3209/#5942">Proceedings</a>
+                  <a href="assets/documents/publications/woerkom2022justificationincbr.pdf">PDF</a>
+                </p>
+              </article>
+            </li>
+            <li>
+              <article>
+                <p class="entry-type">Conference paper · 2022</p>
+                <h3>Landmarks in Case-Based Reasoning: From Theory to Data</h3>
+                <p class="authors">
+                  Wijnand van Woerkom,
+                  <a href="https://davidegrossi.me/">Davide Grossi</a>,
+                  <a href="https://www.uu.nl/staff/HPrakken">Henry Prakken</a>, and
+                  <a href="https://www.ai.rug.nl/~verheij/">Bart Verheij</a>
+                </p>
+                <p class="citation"><em>HHAI 2022: Augmenting Human Intellect</em>. IOS Press.</p>
+                <p class="entry-links">
+                  <a href="https://doi.org/10.3233/FAIA220200">DOI</a>
+                  <a href="assets/documents/publications/woerkom2022landmarksincbr.pdf">PDF</a>
+                  <span class="award-badge award-badge-secondary">Runner-up · Best Paper</span>
+                </p>
               </article>
             </li>
           </ol>
-          <a class="text-link" href="https://scholar.google.com/citations?user=RA7F5CwAAAAJ">
-            View the complete list on Google Scholar <span aria-hidden="true">→</span>
-          </a>
+          <button
+            class="publication-toggle"
+            type="button"
+            aria-expanded="false"
+            aria-controls="publication-list"
+            data-publication-toggle
+            hidden
+          >Expand publication list</button>
         </div>
       </section>
 
       <section class="content-section" id="talks" aria-labelledby="talks-heading">
         <header class="section-heading">
-          <p class="section-number" aria-hidden="true">03</p>
+          <p class="section-number" aria-hidden="true">04</p>
           <h2 id="talks-heading">Talks</h2>
         </header>
         <div class="section-content">
@@ -142,31 +370,10 @@
           </ul>
         </div>
       </section>
-
-      <section class="content-section" id="events" aria-labelledby="events-heading">
-        <header class="section-heading">
-          <p class="section-number" aria-hidden="true">04</p>
-          <h2 id="events-heading">Upcoming events</h2>
-        </header>
-        <div class="section-content">
-          <ul class="event-list upcoming-list">
-            <!-- Replace this sample entry or use: <li><p>No upcoming events.</p></li> -->
-            <li>
-              <p class="entry-date">Day · Month · Year</p>
-              <div>
-                <h3>Event title</h3>
-                <p>Host or venue · City or online</p>
-              </div>
-            </li>
-          </ul>
-        </div>
-      </section>
     </main>
 
     <footer class="site-footer">
-      <p>© 2026 Wijnand van Woerkom</p>
-      <!-- Update the visible date and datetime value whenever the site content changes. -->
-      <p>Last updated <time datetime="2026-08-21">21 August 2026</time></p>
+      <p>Last updated <time data-last-updated>recently</time></p>
     </footer>
   </body>
 </html>
