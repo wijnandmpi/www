@@ -3,57 +3,170 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="A new website is coming soon.">
-    <title>Coming soon</title>
-    <style>
-      :root {
-        color-scheme: light dark;
-        font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      }
-
-      body {
-        display: grid;
-        min-height: 100vh;
-        margin: 0;
-        place-items: center;
-        background: #f5f1e8;
-        color: #1e2a24;
-      }
-
-      main {
-        width: min(36rem, calc(100% - 3rem));
-      }
-
-      p {
-        max-width: 30rem;
-        color: #536159;
-        font-size: 1.125rem;
-        line-height: 1.6;
-      }
-
-      h1 {
-        margin: 0 0 1rem;
-        font-size: clamp(3rem, 10vw, 6rem);
-        letter-spacing: -0.06em;
-        line-height: 0.95;
-      }
-
-      @media (prefers-color-scheme: dark) {
-        body {
-          background: #15201b;
-          color: #f5f1e8;
-        }
-
-        p {
-          color: #b8c4bc;
-        }
-      }
-    </style>
+    <meta
+      name="description"
+      content="Wijnand van Woerkom is a researcher working on artificial intelligence, law, and legal reasoning."
+    >
+    <title>Wijnand van Woerkom — AI &amp; Law Researcher</title>
+    <link rel="stylesheet" href="styles.css">
   </head>
-  <body>
-    <main>
-      <h1>Coming soon.</h1>
-      <p>This website is being prepared. Please check back shortly.</p>
+  <body id="top">
+    <a class="skip-link" href="#main-content">Skip to main content</a>
+
+    <header class="site-header">
+      <div class="header-inner">
+        <a class="wordmark" href="#top" aria-label="Wijnand van Woerkom, home">WvW</a>
+        <nav aria-label="Primary navigation">
+          <a href="#about">About</a>
+          <a href="#news">News</a>
+          <a href="#publications">Publications</a>
+          <a href="#talks">Talks</a>
+          <a href="#events">Events</a>
+        </nav>
+      </div>
+    </header>
+
+    <main id="main-content">
+      <section class="hero" id="about" aria-labelledby="page-title">
+        <div class="hero-copy">
+          <p class="eyebrow">AI &amp; Law · Legal Reasoning · Large Language Models</p>
+          <h1 id="page-title">Wijnand<br>van Woerkom</h1>
+          <p class="role">
+            Senior Research Fellow at the Max Planck Institute for Comparative and
+            International Private Law
+          </p>
+          <p class="introduction">
+            I study AI and law, with a particular focus on the interplay between large
+            language models and legal reasoning. My research asks which legal tasks are
+            suitable for LLMs and how their performance at those tasks can be measured,
+            combining formal and practical methods.
+          </p>
+
+          <ul class="profile-links" aria-label="External profiles">
+            <li>
+              <a href="https://www.mpipriv.de/vanwoerkom">Institute profile <span aria-hidden="true">↗</span></a>
+            </li>
+            <li>
+              <a href="https://scholar.google.com/citations?user=RA7F5CwAAAAJ">Google Scholar <span aria-hidden="true">↗</span></a>
+            </li>
+            <li>
+              <a href="https://www.linkedin.com/in/wijn/">LinkedIn <span aria-hidden="true">↗</span></a>
+            </li>
+          </ul>
+        </div>
+
+        <figure class="portrait-wrap">
+          <span class="portrait-accent" aria-hidden="true"></span>
+          <img
+            class="portrait"
+            src="assets/wijnand-van-woerkom.jpg"
+            alt="Portrait of Wijnand van Woerkom"
+            width="1019"
+            height="1019"
+          >
+        </figure>
+      </section>
+
+      <section class="content-section" id="news" aria-labelledby="news-heading">
+        <header class="section-heading">
+          <p class="section-number" aria-hidden="true">01</p>
+          <h2 id="news-heading">News</h2>
+        </header>
+        <div class="section-content">
+          <ul class="news-list">
+            <!-- Duplicate this list item for each short update. -->
+            <li>
+              <time datetime="2026-08">August 2026</time>
+              <div>
+                <h3>New website</h3>
+                <p>This researcher homepage is now online. More updates will follow soon.</p>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="content-section" id="publications" aria-labelledby="publications-heading">
+        <header class="section-heading">
+          <p class="section-number" aria-hidden="true">02</p>
+          <h2 id="publications-heading">Selected publications</h2>
+        </header>
+        <div class="section-content">
+          <ol class="publication-list">
+            <!-- Replace these sample entries and duplicate as needed. -->
+            <li>
+              <article>
+                <p class="entry-type">Journal article · Year</p>
+                <h3>Publication title</h3>
+                <p class="citation">Author names. <em>Journal or proceedings title</em>.</p>
+                <p class="entry-links"><span>DOI</span><span>PDF</span><span>Code</span></p>
+              </article>
+            </li>
+            <li>
+              <article>
+                <p class="entry-type">Conference paper · Year</p>
+                <h3>Publication title</h3>
+                <p class="citation">Author names. <em>Conference or edited volume</em>.</p>
+                <p class="entry-links"><span>DOI</span><span>PDF</span></p>
+              </article>
+            </li>
+          </ol>
+          <a class="text-link" href="https://scholar.google.com/citations?user=RA7F5CwAAAAJ">
+            View the complete list on Google Scholar <span aria-hidden="true">→</span>
+          </a>
+        </div>
+      </section>
+
+      <section class="content-section" id="talks" aria-labelledby="talks-heading">
+        <header class="section-heading">
+          <p class="section-number" aria-hidden="true">03</p>
+          <h2 id="talks-heading">Talks</h2>
+        </header>
+        <div class="section-content">
+          <ul class="event-list">
+            <!-- Replace these sample entries and duplicate as needed. -->
+            <li>
+              <p class="entry-date">Month · Year</p>
+              <div>
+                <h3>Talk title</h3>
+                <p>Event or seminar name · City or online</p>
+              </div>
+            </li>
+            <li>
+              <p class="entry-date">Month · Year</p>
+              <div>
+                <h3>Talk title</h3>
+                <p>Event or seminar name · City or online</p>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="content-section" id="events" aria-labelledby="events-heading">
+        <header class="section-heading">
+          <p class="section-number" aria-hidden="true">04</p>
+          <h2 id="events-heading">Upcoming events</h2>
+        </header>
+        <div class="section-content">
+          <ul class="event-list upcoming-list">
+            <!-- Replace this sample entry or use: <li><p>No upcoming events.</p></li> -->
+            <li>
+              <p class="entry-date">Day · Month · Year</p>
+              <div>
+                <h3>Event title</h3>
+                <p>Host or venue · City or online</p>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </section>
     </main>
+
+    <footer class="site-footer">
+      <p>© 2026 Wijnand van Woerkom</p>
+      <!-- Update the visible date and datetime value whenever the site content changes. -->
+      <p>Last updated <time datetime="2026-08-21">21 August 2026</time></p>
+    </footer>
   </body>
 </html>
