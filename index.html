@@ -360,7 +360,7 @@
           <h2 id="talks-heading">Talks</h2>
         </header>
         <div class="section-content">
-          <ul class="event-list">
+          <ul class="event-list" id="talk-list">
             <li>
               <p class="entry-date">2026</p>
               <div>
@@ -445,12 +445,20 @@
               </div>
             </li>
           </ul>
+          <button
+            class="publication-toggle"
+            type="button"
+            aria-expanded="false"
+            aria-controls="talk-list"
+            data-talk-toggle
+            hidden
+          >Expand talk list</button>
         </div>
       </section>
     </main>
 
     <footer class="site-footer">
-      <p>Last updated <time data-last-updated>recently</time></p>
+      <p>Last updated: <time data-last-updated>recently</time></p>
     </footer>
   </body>
 </html>

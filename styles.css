@@ -375,6 +375,10 @@ h3 {
   display: none;
 }
 
+.event-list.is-collapsed > li:nth-child(n + 6) {
+  display: none;
+}
+
 .entry-type {
   margin: 0 0 0.55rem;
 }

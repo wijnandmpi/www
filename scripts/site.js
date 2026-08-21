@@ -30,6 +30,24 @@
     });
   }
 
+  const talkList = document.querySelector("#talk-list");
+  const talkToggle = document.querySelector("[data-talk-toggle]");
+
+  if (talkList && talkToggle && talkList.children.length > 5) {
+    talkList.classList.add("is-collapsed");
+    talkToggle.hidden = false;
+
+    talkToggle.addEventListener("click", () => {
+      const isExpanded = talkToggle.getAttribute("aria-expanded") === "true";
+
+      talkList.classList.toggle("is-collapsed", isExpanded);
+      talkToggle.setAttribute("aria-expanded", String(!isExpanded));
+      talkToggle.textContent = isExpanded
+        ? "Expand talk list"
+        : "Collapse talk list";
+    });
+  }
+
   const lastModified = new Date(document.lastModified);
 
   if (!Number.isNaN(lastModified.getTime())) {
