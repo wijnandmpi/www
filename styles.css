@@ -170,6 +170,92 @@ h1 {
   line-height: 0.92;
 }
 
+.name-heading {
+  display: flex;
+  min-height: 1.84em;
+  max-width: none;
+  align-items: flex-start;
+  gap: 0.35rem;
+}
+
+.name-toggle {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: inherit;
+  cursor: pointer;
+  font-family: inherit;
+  font-size: inherit;
+  font-weight: inherit;
+  letter-spacing: inherit;
+  line-height: inherit;
+  text-align: left;
+}
+
+.name-ipa {
+  display: none;
+  font-size: 0.65em;
+  letter-spacing: -0.025em;
+  line-height: 1.415;
+  white-space: nowrap;
+}
+
+.name-heading.is-expanded .name-standard {
+  display: none;
+}
+
+.name-heading.is-expanded .name-ipa {
+  display: block;
+}
+
+.pronunciation-audio:not([hidden]) {
+  display: grid;
+  grid-template-rows: repeat(2, 0.92em);
+  flex: 0 0 auto;
+  align-items: center;
+}
+
+.pronunciation-play {
+  display: inline-grid;
+  width: 1.8rem;
+  height: 1.8rem;
+  padding: 0.3rem;
+  border: 1px solid var(--line);
+  border-radius: 50%;
+  place-items: center;
+  background: transparent;
+  color: var(--accent);
+  cursor: pointer;
+  transition: border-color 160ms ease, background-color 160ms ease, color 160ms ease;
+}
+
+.pronunciation-play:hover,
+.pronunciation-play.is-playing {
+  border-color: var(--accent);
+  background: var(--accent);
+  color: var(--paper);
+}
+
+.pronunciation-play svg {
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+  fill: currentColor;
+  stroke: currentColor;
+  stroke-width: 1.8;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.pronunciation-play svg path:first-child {
+  stroke: none;
+}
+
+.name-heading audio {
+  display: none;
+}
+
 .role {
   max-width: 41rem;
   margin: 1.25rem 0 0;
@@ -650,9 +736,14 @@ h3 {
 @media print {
   .site-header,
   .profile-links,
+  .pronunciation-audio,
   .publication-toggle,
   .skip-link {
     display: none;
+  }
+
+  .name-toggle {
+    cursor: default;
   }
 
   .hero {

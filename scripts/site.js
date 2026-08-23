@@ -12,6 +12,59 @@
     }
   }
 
+  const pronunciation = document.querySelector("[data-pronunciation]");
+  const pronunciationToggle = document.querySelector("[data-pronunciation-toggle]");
+  const pronunciationAudio = document.querySelector("[data-pronunciation-audio]");
+
+  if (pronunciation && pronunciationToggle && pronunciationAudio) {
+    const playButtons = [...pronunciationAudio.querySelectorAll("[data-pronunciation-play]")];
+    const audioElements = playButtons
+      .map((button) => document.getElementById(button.dataset.pronunciationPlay))
+      .filter(Boolean);
+
+    const stopAudio = () => {
+      audioElements.forEach((audio) => {
+        audio.pause();
+        audio.currentTime = 0;
+      });
+      playButtons.forEach((button) => button.classList.remove("is-playing"));
+    };
+
+    pronunciationToggle.addEventListener("click", () => {
+      const isExpanded = pronunciationToggle.getAttribute("aria-expanded") === "true";
+
+      pronunciation.classList.toggle("is-expanded", !isExpanded);
+      pronunciationToggle.setAttribute("aria-expanded", String(!isExpanded));
+      pronunciationToggle.setAttribute(
+        "aria-label",
+        isExpanded
+          ? "Show the pronunciation of Wijnand van Woerkom"
+          : "Show the spelling of Wijnand van Woerkom",
+      );
+      pronunciationAudio.hidden = isExpanded;
+
+      if (isExpanded) {
+        stopAudio();
+      }
+    });
+
+    playButtons.forEach((button) => {
+      const audio = document.getElementById(button.dataset.pronunciationPlay);
+
+      if (!audio) {
+        return;
+      }
+
+      button.addEventListener("click", () => {
+        stopAudio();
+        button.classList.add("is-playing");
+        audio.play().catch(() => button.classList.remove("is-playing"));
+      });
+
+      audio.addEventListener("ended", () => button.classList.remove("is-playing"));
+    });
+  }
+
   const publicationList = document.querySelector("#publication-list");
   const publicationToggle = document.querySelector("[data-publication-toggle]");
 

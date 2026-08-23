@@ -11,8 +11,8 @@
     <link rel="icon" href="assets/icons/favicon.svg" type="image/svg+xml">
     <link rel="icon" href="assets/icons/favicon-32.png" sizes="32x32" type="image/png">
     <link rel="apple-touch-icon" href="assets/icons/apple-touch-icon.png">
-    <link rel="stylesheet" href="styles.css?v=3">
-    <script src="scripts/site.js?v=2" defer></script>
+    <link rel="stylesheet" href="styles.css?v=4">
+    <script src="scripts/site.js?v=3" defer></script>
     <!-- Cloudflare Web Analytics -->
     <script
       type="module"
@@ -39,7 +39,44 @@
     <main id="main-content">
       <section class="hero" id="about" aria-labelledby="page-title">
         <div class="hero-copy">
-          <h1 id="page-title">Wijnand<br>van Woerkom</h1>
+          <h1 id="page-title" class="name-heading" aria-label="Wijnand van Woerkom" data-pronunciation>
+            <button
+              class="name-toggle"
+              type="button"
+              aria-expanded="false"
+              aria-label="Show the pronunciation of Wijnand van Woerkom"
+              data-pronunciation-toggle
+            >
+              <span class="name-standard" aria-hidden="true">Wijnand<br>van Woerkom</span>
+              <span class="name-ipa" aria-hidden="true"><span>/ˈʋɛi̯.nɑnt/</span><br><span>/fɑn ˈʋuːr.kɔm/</span></span>
+            </button>
+            <span class="pronunciation-audio" hidden data-pronunciation-audio>
+              <button
+                class="pronunciation-play"
+                type="button"
+                aria-label="Play the pronunciation of Wijnand"
+                data-pronunciation-play="pronunciation-wijnand"
+              >
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M4 9v6h4l5 4V5L8 9H4Z"></path>
+                  <path d="M16 8.5a5 5 0 0 1 0 7M18.5 6a8.5 8.5 0 0 1 0 12"></path>
+                </svg>
+              </button>
+              <button
+                class="pronunciation-play"
+                type="button"
+                aria-label="Play the pronunciation of van Woerkom"
+                data-pronunciation-play="pronunciation-van-woerkom"
+              >
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M4 9v6h4l5 4V5L8 9H4Z"></path>
+                  <path d="M16 8.5a5 5 0 0 1 0 7M18.5 6a8.5 8.5 0 0 1 0 12"></path>
+                </svg>
+              </button>
+            </span>
+            <audio id="pronunciation-wijnand" src="assets/audio/wijnand.mp3" preload="none"></audio>
+            <audio id="pronunciation-van-woerkom" src="assets/audio/vanwoerkom.mp3" preload="none"></audio>
+          </h1>
           <p class="role">
             Senior Research Fellow at the Max Planck Institute for Comparative and
             International Private Law
@@ -170,7 +207,7 @@
                 <p class="entry-links">
                   <a href="https://doi.org/10.1145/3836937.3836975">DOI</a>
                   <a href="assets/documents/publications/woerkom2026measuringcasebase.pdf">PDF</a>
-                  <span class="award-badge">Winner · Carole Hafner Best Paper</span>
+                  <span class="award-badge">Winner · Best Paper</span>
                 </p>
               </article>
             </li>
@@ -241,7 +278,7 @@
                 <p class="entry-links">
                   <a href="https://doi.org/10.1145/3769126.3769190">DOI</a>
                   <a href="assets/documents/publications/woerkom2025formalresultscase.pdf">PDF</a>
-                  <span class="award-badge">Winner · Donald Berman Best Student Paper</span>
+                  <span class="award-badge">Winner · Best Student Paper</span>
                 </p>
               </article>
             </li>
