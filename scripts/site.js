@@ -12,57 +12,53 @@
     }
   }
 
-  const pronunciation = document.querySelector("[data-pronunciation]");
-  const pronunciationToggle = document.querySelector("[data-pronunciation-toggle]");
-  const pronunciationAudio = document.querySelector("[data-pronunciation-audio]");
+  const pronunciationItems = [...document.querySelectorAll("[data-pronunciation-part]")]
+    .map((part) => {
+      const toggle = part.querySelector("[data-pronunciation-toggle]");
+      const playButton = part.querySelector("[data-pronunciation-play]");
+      const audio = playButton
+        ? document.getElementById(playButton.dataset.pronunciationPlay)
+        : null;
 
-  if (pronunciation && pronunciationToggle && pronunciationAudio) {
-    const playButtons = [...pronunciationAudio.querySelectorAll("[data-pronunciation-play]")];
-    const audioElements = playButtons
-      .map((button) => document.getElementById(button.dataset.pronunciationPlay))
-      .filter(Boolean);
+      return { part, toggle, playButton, audio };
+    })
+    .filter(({ toggle, playButton, audio }) => toggle && playButton && audio);
 
-    const stopAudio = () => {
-      audioElements.forEach((audio) => {
-        audio.pause();
-        audio.currentTime = 0;
-      });
-      playButtons.forEach((button) => button.classList.remove("is-playing"));
-    };
+  const resetAudio = ({ playButton, audio }) => {
+    audio.pause();
+    audio.currentTime = 0;
+    playButton.classList.remove("is-playing");
+  };
 
-    pronunciationToggle.addEventListener("click", () => {
-      const isExpanded = pronunciationToggle.getAttribute("aria-expanded") === "true";
+  const stopAudio = () => pronunciationItems.forEach(resetAudio);
 
-      pronunciation.classList.toggle("is-expanded", !isExpanded);
-      pronunciationToggle.setAttribute("aria-expanded", String(!isExpanded));
-      pronunciationToggle.setAttribute(
+  pronunciationItems.forEach((item) => {
+    const { part, toggle, playButton, audio } = item;
+    const name = part.dataset.pronunciationName;
+
+    toggle.addEventListener("click", () => {
+      const isExpanded = toggle.getAttribute("aria-expanded") === "true";
+
+      part.classList.toggle("is-expanded", !isExpanded);
+      toggle.setAttribute("aria-expanded", String(!isExpanded));
+      toggle.setAttribute(
         "aria-label",
-        isExpanded
-          ? "Show the pronunciation of Wijnand van Woerkom"
-          : "Show the spelling of Wijnand van Woerkom",
+        `${isExpanded ? "Show the pronunciation of" : "Show the spelling of"} ${name}`,
       );
-      pronunciationAudio.hidden = isExpanded;
+      playButton.hidden = isExpanded;
 
       if (isExpanded) {
-        stopAudio();
+        resetAudio(item);
       }
     });
 
-    playButtons.forEach((button) => {
-      const audio = document.getElementById(button.dataset.pronunciationPlay);
-
-      if (!audio) {
-        return;
-      }
-
-      button.addEventListener("click", () => {
-        stopAudio();
-        button.classList.add("is-playing");
-        audio.play().catch(() => button.classList.remove("is-playing"));
-      });
-
-      audio.addEventListener("ended", () => button.classList.remove("is-playing"));
+    playButton.addEventListener("click", () => {
+      stopAudio();
+      playButton.classList.add("is-playing");
+      audio.play().catch(() => playButton.classList.remove("is-playing"));
     });
+
+    audio.addEventListener("ended", () => playButton.classList.remove("is-playing"));
   }
 
   const publicationList = document.querySelector("#publication-list");
