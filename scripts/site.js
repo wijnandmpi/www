@@ -59,7 +59,7 @@
     });
 
     audio.addEventListener("ended", () => playButton.classList.remove("is-playing"));
-  }
+  });
 
   const publicationList = document.querySelector("#publication-list");
   const publicationToggle = document.querySelector("[data-publication-toggle]");
