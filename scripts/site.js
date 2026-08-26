@@ -1,4 +1,5 @@
 (() => {
+  const SLOW_PRONUNCIATION_RATE = 0.86;
   const portrait = document.querySelector("[data-random-portrait]");
 
   if (portrait) {
@@ -35,6 +36,7 @@
   pronunciationItems.forEach((item) => {
     const { part, toggle, playButton, audio } = item;
     const name = part.dataset.pronunciationName;
+    let nextPlaybackRate = 1;
 
     toggle.addEventListener("click", () => {
       const isExpanded = toggle.getAttribute("aria-expanded") === "true";
@@ -49,13 +51,23 @@
 
       if (isExpanded) {
         resetAudio(item);
+        audio.playbackRate = 1;
+        nextPlaybackRate = 1;
       }
     });
 
     playButton.addEventListener("click", () => {
       stopAudio();
+      const playbackRate = nextPlaybackRate;
+
+      audio.playbackRate = playbackRate;
       playButton.classList.add("is-playing");
-      audio.play().catch(() => playButton.classList.remove("is-playing"));
+      audio
+        .play()
+        .then(() => {
+          nextPlaybackRate = playbackRate === 1 ? SLOW_PRONUNCIATION_RATE : 1;
+        })
+        .catch(() => playButton.classList.remove("is-playing"));
     });
 
     audio.addEventListener("ended", () => playButton.classList.remove("is-playing"));
