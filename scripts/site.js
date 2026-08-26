@@ -1,5 +1,5 @@
 (() => {
-  const SLOW_PRONUNCIATION_RATE = 0.86;
+  const SLOW_PRONUNCIATION_RATE = 0.7;
   const portrait = document.querySelector("[data-random-portrait]");
 
   if (portrait) {
