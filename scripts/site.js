@@ -75,8 +75,14 @@
 
   const publicationList = document.querySelector("#publication-list");
   const publicationToggle = document.querySelector("[data-publication-toggle]");
+  const publicationToggleIndicator = publicationToggle?.querySelector("[data-toggle-indicator]");
 
-  if (publicationList && publicationToggle && publicationList.children.length > 5) {
+  if (
+    publicationList &&
+    publicationToggle &&
+    publicationToggleIndicator &&
+    publicationList.children.length > 5
+  ) {
     publicationList.classList.add("is-collapsed");
     publicationToggle.hidden = false;
 
@@ -84,17 +90,24 @@
       const isExpanded = publicationToggle.getAttribute("aria-expanded") === "true";
 
       publicationList.classList.toggle("is-collapsed", isExpanded);
+      publicationToggle.setAttribute(
+        "aria-label",
+        isExpanded ? "Expand publication list" : "Collapse publication list",
+      );
       publicationToggle.setAttribute("aria-expanded", String(!isExpanded));
-      publicationToggle.textContent = isExpanded
-        ? "Expand publication list"
-        : "Collapse publication list";
     });
   }
 
   const talkList = document.querySelector("#talk-list");
   const talkToggle = document.querySelector("[data-talk-toggle]");
+  const talkToggleIndicator = talkToggle?.querySelector("[data-toggle-indicator]");
 
-  if (talkList && talkToggle && talkList.children.length > 5) {
+  if (
+    talkList &&
+    talkToggle &&
+    talkToggleIndicator &&
+    talkList.children.length > 5
+  ) {
     talkList.classList.add("is-collapsed");
     talkToggle.hidden = false;
 
@@ -102,10 +115,11 @@
       const isExpanded = talkToggle.getAttribute("aria-expanded") === "true";
 
       talkList.classList.toggle("is-collapsed", isExpanded);
+      talkToggle.setAttribute(
+        "aria-label",
+        isExpanded ? "Expand talk list" : "Collapse talk list",
+      );
       talkToggle.setAttribute("aria-expanded", String(!isExpanded));
-      talkToggle.textContent = isExpanded
-        ? "Expand talk list"
-        : "Collapse talk list";
     });
   }
 

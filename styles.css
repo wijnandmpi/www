@@ -391,6 +391,11 @@ h3 {
   padding-top: 0;
 }
 
+.preview-list li:last-child {
+  padding-bottom: 0;
+  border-bottom: 0;
+}
+
 .preview-list time,
 .preview-list .entry-date {
   display: block;
@@ -426,6 +431,7 @@ h3 {
 }
 
 .section-content {
+  position: relative;
   min-width: 0;
 }
 
@@ -460,6 +466,16 @@ h3 {
 
 .publication-list.is-collapsed > li:nth-child(n + 6) {
   display: none;
+}
+
+.publication-list > li:last-child,
+.publication-list.is-collapsed > li:nth-child(5) {
+  padding-bottom: 0;
+}
+
+.publication-list > li:last-child .entry-links,
+.publication-list.is-collapsed > li:nth-child(5) .entry-links {
+  padding-right: 2.5rem;
 }
 
 .event-list.is-collapsed > li:nth-child(n + 6) {
@@ -513,15 +529,36 @@ h3 {
 }
 
 .publication-toggle {
-  margin-top: 1rem;
-  padding: 0.55rem 0.8rem;
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  display: grid;
+  width: 2rem;
+  height: 2rem;
+  padding: 0;
   border: 1px solid var(--accent);
-  border-radius: 100vmax;
+  border-radius: 50%;
   background: transparent;
   color: var(--accent);
   cursor: pointer;
-  font-size: 0.78rem;
-  font-weight: 750;
+  font-size: 1.25rem;
+  line-height: 1;
+  place-items: center;
+}
+
+.toggle-icon {
+  width: 1rem;
+  height: 1rem;
+  fill: none;
+  stroke: currentColor;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 2.6;
+  transition: transform 160ms ease;
+}
+
+.publication-toggle[aria-expanded="true"] .toggle-icon {
+  transform: rotate(180deg);
 }
 
 .publication-toggle:hover {
@@ -539,6 +576,17 @@ h3 {
 
 .event-list li:first-child {
   padding-top: 0.25rem;
+}
+
+.event-list > li:last-child,
+.event-list.is-collapsed > li:nth-child(5) {
+  padding-bottom: 0;
+  border-bottom: 0;
+}
+
+.event-list > li:last-child > div > :last-child,
+.event-list.is-collapsed > li:nth-child(5) > div > :last-child {
+  padding-right: 2.5rem;
 }
 
 .event-list p:not(.entry-date) {
