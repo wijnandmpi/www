@@ -54,7 +54,7 @@
         .catch(() => playButton.classList.remove("is-playing"));
     };
 
-    const setExpanded = (isExpanded) => {
+    const setExpanded = (isExpanded, { stopPlayback = true } = {}) => {
       part.classList.toggle("is-expanded", isExpanded);
       toggle.setAttribute("aria-expanded", String(isExpanded));
       const action = isExpanded
@@ -68,9 +68,11 @@
 
       if (!isExpanded) {
         part.style.removeProperty("min-width");
-        resetAudio(item);
-        audio.playbackRate = 1;
-        nextPlaybackRate = 1;
+        if (stopPlayback) {
+          resetAudio(item);
+          audio.playbackRate = 1;
+          nextPlaybackRate = 1;
+        }
       }
     };
 
@@ -88,7 +90,7 @@
 
       revealedByHover = false;
       // A keyboard user may have tabbed onto the speaker while it was visible.
-      setExpanded(Boolean(part.querySelector(":focus-visible")));
+      setExpanded(Boolean(part.querySelector(":focus-visible")), { stopPlayback: false });
     });
 
     toggle.addEventListener("click", (event) => {
