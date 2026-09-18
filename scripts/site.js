@@ -32,31 +32,15 @@
   };
 
   const stopAudio = () => pronunciationItems.forEach(resetAudio);
+  const hoverCapability = window.matchMedia("(any-hover: hover)");
 
   pronunciationItems.forEach((item) => {
     const { part, toggle, playButton, audio } = item;
     const name = part.dataset.pronunciationName;
     let nextPlaybackRate = 1;
+    let revealedByHover = false;
 
-    toggle.addEventListener("click", () => {
-      const isExpanded = toggle.getAttribute("aria-expanded") === "true";
-
-      part.classList.toggle("is-expanded", !isExpanded);
-      toggle.setAttribute("aria-expanded", String(!isExpanded));
-      toggle.setAttribute(
-        "aria-label",
-        `${isExpanded ? "Show the pronunciation of" : "Show the spelling of"} ${name}`,
-      );
-      playButton.hidden = isExpanded;
-
-      if (isExpanded) {
-        resetAudio(item);
-        audio.playbackRate = 1;
-        nextPlaybackRate = 1;
-      }
-    });
-
-    playButton.addEventListener("click", () => {
+    const playPronunciation = () => {
       stopAudio();
       const playbackRate = nextPlaybackRate;
 
@@ -68,7 +52,57 @@
           nextPlaybackRate = playbackRate === 1 ? SLOW_PRONUNCIATION_RATE : 1;
         })
         .catch(() => playButton.classList.remove("is-playing"));
+    };
+
+    const setExpanded = (isExpanded) => {
+      part.classList.toggle("is-expanded", isExpanded);
+      toggle.setAttribute("aria-expanded", String(isExpanded));
+      const action = isExpanded
+        ? revealedByHover ? "Play the pronunciation of" : "Show the spelling of"
+        : "Show the pronunciation of";
+      toggle.setAttribute(
+        "aria-label",
+        `${action} ${name}`,
+      );
+      playButton.hidden = !isExpanded;
+
+      if (!isExpanded) {
+        part.style.removeProperty("min-width");
+        resetAudio(item);
+        audio.playbackRate = 1;
+        nextPlaybackRate = 1;
+      }
+    };
+
+    part.addEventListener("pointerenter", (event) => {
+      if (event.pointerType !== "mouse" || !hoverCapability.matches) return;
+
+      // Keep the hover area stable if the IPA is narrower than the spelling.
+      part.style.minWidth = `${part.getBoundingClientRect().width}px`;
+      revealedByHover = true;
+      setExpanded(true);
     });
+
+    part.addEventListener("pointerleave", (event) => {
+      if (event.pointerType !== "mouse" || !revealedByHover) return;
+
+      revealedByHover = false;
+      // A keyboard user may have tabbed onto the speaker while it was visible.
+      setExpanded(Boolean(part.querySelector(":focus-visible")));
+    });
+
+    toggle.addEventListener("click", (event) => {
+      if (revealedByHover && event.pointerType !== "touch") {
+        playPronunciation();
+        return;
+      }
+
+      // Without mouse hover, taps and keyboard activation still toggle the IPA.
+      revealedByHover = false;
+      setExpanded(toggle.getAttribute("aria-expanded") !== "true");
+    });
+
+    playButton.addEventListener("click", playPronunciation);
 
     audio.addEventListener("ended", () => playButton.classList.remove("is-playing"));
   });
