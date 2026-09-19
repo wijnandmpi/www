@@ -3,13 +3,15 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#f4f1e9">
     <meta name="description" content="Conferences, workshops, seminars, and other academic events.">
     <title>Events — Wijnand van Woerkom</title>
     <link rel="icon" href="favicon.ico?v=1" sizes="16x16 32x32 48x48 64x64">
     <link rel="icon" href="assets/icons/favicon.svg?v=13" type="image/svg+xml" sizes="any">
     <link rel="icon" href="assets/icons/favicon-32.png?v=13" sizes="32x32" type="image/png">
     <link rel="apple-touch-icon" href="assets/icons/apple-touch-icon.png?v=13">
-    <link rel="stylesheet" href="styles.css?v=14">
+    <script src="scripts/theme.js?v=1"></script>
+    <link rel="stylesheet" href="styles.css?v=20">
     <script src="scripts/site.js?v=14" defer></script>
     <!-- Cloudflare Web Analytics -->
     <script
@@ -31,6 +33,15 @@
           <a href="index.html#publications">Publications</a>
           <a href="index.html#talks">Talks</a>
         </nav>
+        <button class="theme-toggle" type="button" data-theme-toggle aria-label="Switch to dark mode" title="Switch to dark mode" hidden>
+          <svg class="theme-icon-moon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+            <path d="M20.8 13.1A9 9 0 0 1 10.9 3.2a9 9 0 1 0 9.9 9.9Z"></path>
+          </svg>
+          <svg class="theme-icon-sun" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+            <circle cx="12" cy="12" r="4"></circle>
+            <path d="M12 2v2M12 20v2M2 12h2M20 12h2M4.93 4.93l1.42 1.42M17.65 17.65l1.42 1.42M4.93 19.07l1.42-1.42M17.65 6.35l1.42-1.42"></path>
+          </svg>
+        </button>
       </div>
     </header>
 
